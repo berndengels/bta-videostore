@@ -64,18 +64,6 @@
         </style>
     </head>
     <body>
-        <x-header title="Das ist der Titel" :info="$info" />
-        {{--
-        @include('components.header', [
-            'title' => 'Das ist der Titel',
-            'info' => $info
-        ])
-        --}}
-
-        <form>
-            <x-form.input.text name="name" value="Paul Meier" />
-        </form>
-
         <div class="flex-center position-ref full-height">
             @if (Route::has('login'))
                 <div class="top-right links">
