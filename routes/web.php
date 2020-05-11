@@ -12,12 +12,17 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+Auth::routes();
 
 Route::get('/', function () {
-    return view('welcome');
-//    return '<h1>Hallo Welt</h1>';
+    return view('welcome', [
+        'info' => 'Hier kommt der Info Text ...',
+    ]);
 });
-
-Auth::routes();
+Route::get('/test', function () {
+    return view('test', [
+        'info' => 'Hier kommt der Info Text ...',
+    ]);
+});
 
 Route::get('/home', 'HomeController@index')->name('home');
