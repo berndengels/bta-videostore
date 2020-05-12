@@ -1,0 +1,25 @@
+#!/bin/sh
+echo "set permissions"
+sudo chmod -R 777 bootstrap/cache
+sudo chmod -R 777 storage
+
+echo "install vendor/node_modules packages"
+composer install
+npm install
+npm run dev
+
+if [ ! -f .env ]; then
+    echo "create .env file"
+    cp .env.example .env
+fi
+if [ ! -f .htaccess ]; then
+    echo "create .htaccess file"
+    cp htaccess-tpl .htaccess
+fi
+
+echo "clear all caches"
+php artisan cache:clear
+php artisan config:clear
+php artisan route:clear
+php artisan view:clear
+echo "all DONE :-)"
