@@ -1,7 +1,8 @@
 @extends('layouts.first')
 
 @section('meinHeader')
-    <h1>Meine Header</h1>
+    @parent
+    <h1>Mein hinzugefügter Header</h1>
 @endsection
 
 @section('meinInhalt')

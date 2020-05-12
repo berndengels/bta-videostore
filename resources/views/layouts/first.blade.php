@@ -8,7 +8,9 @@
     </head>
     <body>
         <header>
-            @yield('meinHeader')
+            @section('meinHeader')
+                <h1>Parent Header</h1>
+            @show
         </header>
 
         <div>
