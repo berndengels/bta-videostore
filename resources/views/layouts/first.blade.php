@@ -16,5 +16,9 @@
         <div>
             @yield('meinInhalt')
         </div>
+
+        <div>
+            @yield('meinFooter')
+        </div>
     </body>
 </html>
