@@ -15,14 +15,13 @@ use Illuminate\Support\Facades\Route;
 Auth::routes();
 
 Route::get('/', function () {
-    return view('welcome', [
-        'info' => 'Hier kommt der Info Text ...',
-    ]);
+    // hole view: resources/views/welcome.blade.php
+    return view('welcome');
 });
-Route::get('/test', function () {
-    return view('test', [
-        'info' => 'Hier kommt der Info Text ...',
-    ]);
+
+Route::get('/hallo', function () {
+    // hole view: resources/views/hallo.blade.php
+    return view('hallo');
 });
 
 Route::get('/home', 'HomeController@index')->name('home');
