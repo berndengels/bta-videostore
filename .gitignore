@@ -5,7 +5,11 @@
 /public/css
 /public/storage
 /storage/*.key
+/storage/logs/
+/storage/framework/
+/bootstrap/cache/
 /vendor
+.DS_Store
 .env
 .env.backup
 .phpunit.result.cache
@@ -17,3 +21,4 @@ yarn-error.log
 /.editorconfig
 /.htaccess
 /teilnehmer.txt
+/.env.secret

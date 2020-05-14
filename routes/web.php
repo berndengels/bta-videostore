@@ -17,11 +17,22 @@ Auth::routes();
 Route::get('/', function () {
     // hole view: resources/views/welcome.blade.php
     return view('welcome');
-});
+})->name('welcome');
 
 Route::get('/hallo', function () {
     // hole view: resources/views/hallo.blade.php
-    return view('hallo');
+    $msg = 'Bitte alle Felder ausfüllen!';
+    $options = [
+        1 => 'Paul',
+        2 => 'Lisa',
+        3 => 'Heinrich'
+    ];
+
+    return view('hallo', ['message' => $msg, 'options' => $options]);
 });
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::fallback(function(){
+    return redirect()->route('welcome');
+});

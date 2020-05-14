@@ -5,21 +5,19 @@ namespace App\View\Components\Form\Input;
 use Illuminate\View\Component;
 use Illuminate\View\View;
 
-class Text extends Component
+class Email extends Component
 {
     public $name;
     public $value;
-    public $msg;
     /**
      * Create a new component instance.
      *
      * @return void
      */
-    public function __construct($name, $value, $msg = null)
+    public function __construct($name, $value)
     {
         $this->name = $name;
         $this->value = $value;
-        $this->msg = $msg;
     }
 
     /**
@@ -29,6 +27,6 @@ class Text extends Component
      */
     public function render()
     {
-        return view('components.form.input.text');
+        return view('components.form.input.email');
     }
 }
