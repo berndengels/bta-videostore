@@ -17,7 +17,7 @@ Auth::routes();
 Route::get('/', function () {
     // hole view: resources/views/welcome.blade.php
     return view('welcome');
-});
+})->name('welcome');
 
 Route::get('/hallo', function () {
     // hole view: resources/views/hallo.blade.php
@@ -25,3 +25,7 @@ Route::get('/hallo', function () {
 });
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::fallback(function(){
+    return redirect()->route('welcome');
+});
