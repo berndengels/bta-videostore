@@ -21,7 +21,14 @@ Route::get('/', function () {
 
 Route::get('/hallo', function () {
     // hole view: resources/views/hallo.blade.php
-    return view('hallo');
+    $msg = 'Bitte alle Felder ausfüllen!';
+    $options = [
+        1 => 'Paul',
+        2 => 'Lisa',
+        3 => 'Heinrich'
+    ];
+
+    return view('hallo', ['message' => $msg, 'options' => $options]);
 });
 
 Route::get('/home', 'HomeController@index')->name('home');
