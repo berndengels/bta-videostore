@@ -1,12 +1,19 @@
 #!/bin/sh
 echo "set permissions"
-sudo chmod -R 777 bootstrap/cache
-sudo chmod -R 777 storage
+#sudo chmod -R 777 bootstrap/cache
+#sudo chmod -R 777 storage
 
-echo "install vendor/node_modules packages"
-composer install
-npm install
-npm run dev
+if [ ! -d vendor ]; then
+    echo "create vendors"
+    composer install
+fi
+
+if [ ! -d node_modules ]; then
+    echo "create node_modules"
+    npm install
+fi
+
+#npm run dev
 
 if [ ! -f .env ]; then
     echo "create .env file"
@@ -15,6 +22,14 @@ fi
 if [ ! -f .htaccess ]; then
     echo "create .htaccess file"
     cp htaccess-tpl .htaccess
+fi
+# check for APP_KEY
+appKey=$(grep ^APP_KEY .env|awk -F "=" '{print $2}')
+if [ "$appKey" == "" ]; then
+    echo "no APP_KEY found, will generate the key"
+    php artisan key:generate
+else
+    echo "APP_KEY seems to be valid: $appKey"
 fi
 
 echo "clear all caches"
