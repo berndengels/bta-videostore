@@ -1,0 +1,25 @@
+Aufgaben für den 15.05.2020
+
+1. Baut mittels 'php artisan make:component /Form/Input/{ElementType}' View-Komponenten für
+folgende Formular Feldtypen:
+- date
+- time
+- checkbox
+- radio
+- textarea
+
+2. Erstellt eine View mit einem Formular, worin alle erstellten Form-Input-Komponenten benutzt werden.
+
+3. Erstellt mittels 'php artisan make:controller' eine Controller Klasse mit dem Namen 'FormController'.
+Dieser Controller soll die Funtion (Methode) 'form' enthalten, die die in 2. erstellte view per return
+zurück gibt. Der View sollten zumindest die Option-Daten dür das Select-Menu übergeben werden.
+OPTIONAL: Perfekt wäre es, wenn der Controller der View sämliche Daten für alle Formelmente als
+mehrdimensionales assoziatives Array übergibt. D.h: sämliche Formulatdaten würden üner den Controller
+definiert und kein einziger in der View.
+
+4. Erstellt eine neue Route (als methode: get) in routes/web.php mit der Route '/form'. Diese soll den
+FormController mit der Funktion (Methode) 'form' aufrufen. Der Name der Route soll 'form' heissen.
+
+5. Bitte die Laravel Doku zu Frontend -> Blade Templates studieren:
+https://laravel.com/docs/7.x/blade
+

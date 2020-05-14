@@ -3,12 +3,12 @@
 namespace App\View\Components\Form\Input;
 
 use Illuminate\View\Component;
+use Illuminate\View\View;
 
 class Email extends Component
 {
     public $name;
     public $value;
-
     /**
      * Create a new component instance.
      *
@@ -23,10 +23,10 @@ class Email extends Component
     /**
      * Get the view / contents that represent the component.
      *
-     * @return \Illuminate\View\View|string
+     * @return View|string
      */
     public function render()
     {
-        return view('components..form.input.email');
+        return view('components.form.input.email');
     }
 }

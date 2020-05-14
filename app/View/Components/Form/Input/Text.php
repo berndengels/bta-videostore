@@ -9,15 +9,17 @@ class Text extends Component
 {
     public $name;
     public $value;
+    public $msg;
     /**
      * Create a new component instance.
      *
      * @return void
      */
-    public function __construct($name, $value)
+    public function __construct($name, $value, $msg = null)
     {
         $this->name = $name;
         $this->value = $value;
+        $this->msg = $msg;
     }
 
     /**

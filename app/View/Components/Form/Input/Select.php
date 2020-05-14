@@ -3,23 +3,30 @@
 namespace App\View\Components\Form\Input;
 
 use Illuminate\View\Component;
+use Illuminate\View\View;
 
 class Select extends Component
 {
+    public $name;
+    public $value;
+    public $options;
+
     /**
      * Create a new component instance.
      *
      * @return void
      */
-    public function __construct()
+    public function __construct($name, $options, $value = null)
     {
-        //
+        $this->name = $name;
+        $this->value = $value;
+        $this->options = $options;
     }
 
     /**
      * Get the view / contents that represent the component.
      *
-     * @return \Illuminate\View\View|string
+     * @return View|string
      */
     public function render()
     {
