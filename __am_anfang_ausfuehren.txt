@@ -1,0 +1,36 @@
+- composer install
+
+npm install
+npm run dev
+
+
+für linux und mac:
+chmod -R 777 bootstrap/cache
+chmod -R 777 storage
+
+.envexample umbennennen > .env
+dann ausführen:
+php artisan key:generate
+
+style anwenden:
+
+npm run dev > terminal ausführen
+
+komponensek kreálása:
+php artisan make:component /Form/Input/Email
+kesöbb:
+php artisan make:component /Form/Input/Select
+
+
+ürites:
+php artisan view:clear
+
+UTAK:  / Classes
+view.component.form.input.Email.php
+view.component.form.input.TExt.php
+
+
+
+
+
+
