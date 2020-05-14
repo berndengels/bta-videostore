@@ -6,6 +6,16 @@
 
 @section('meinInhalt')
     <h3>Hallo Welt das ist mein Inhalt</h3>
+    <form>
+        @include('components.form.input.text', [
+            'name' => 'fullname',
+            'value' => 'Paul Meier',
+        ])
+        @include('components.form.input.email', [
+            'name' => 'email',
+            'value' => 'engels@goldenacker.de',
+        ])
+    </form>
 @endsection
 
 @section('meinFooter')
