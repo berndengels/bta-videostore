@@ -3,34 +3,32 @@
 namespace App\View\Components\Form\Input;
 
 use Illuminate\View\Component;
-use Illuminate\View\View;
 
-class Select extends Component
+class textarea extends Component
 {
     public $name;
     public $value;
     public $msg;
-    public $options;
 
     /**
      * Create a new component instance.
      *
      * @return void
      */
-    public function __construct($name, $options, $value = null)
+    public function __construct()
     {
         $this->name = $name;
         $this->value = $value;
-        $this->options = $options;
+        $this->msg = $msg;
     }
 
     /**
      * Get the view / contents that represent the component.
      *
-     * @return View|string
+     * @return \Illuminate\View\View|string
      */
     public function render()
     {
-        return view('components..form.input.select');
+        return view('components..form.input.textarea');
     }
 }

@@ -19,20 +19,21 @@ Route::get('/', function () {
     return view('welcome');
 })->name('welcome');
 
-Route::get('/hallo', function () {
-    // hole view: resources/views/hallo.blade.php
-    $msg = 'Bitte alle Felder ausfüllen!';
-    $options = [
-        1 => 'Paul',
-        2 => 'Lisa',
-        3 => 'Heinrich'
-    ];
+// Route::get('/beispiel_formular', function () {
+//     // hole view: resources/views/hallo.blade.php
+//     $msg = 'Bitte alle Felder ausfüllen!';
+//     $options = [
+//         1 => 'Paul',
+//         2 => 'Lisa',
+//         3 => 'Heinrich'
+//     ];
 
-    return view('hallo', ['message' => $msg, 'options' => $options]);
-});
+//     return view('beispiel_formular', ['message' => $msg, 'options' => $options]);
+// });
 
 Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/form', 'FormController@form')->name('form');
 
-Route::fallback(function(){
+Route::fallback(function () {
     return redirect()->route('welcome');
 });

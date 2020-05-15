@@ -2,18 +2,18 @@
   <label for="{{ $name }}"
     class="col-md-2 col-form-label">{{ __(ucfirst($name)) }}</label>
   <div class="col-md-10">
-    <select id="{{ $name }}" name="{{ $name }}" value="{{ $value ?? '' }}"
-      class="form-control @error('title') is-invalid @enderror col-md-12">
-      <option value="">Bitte wählen</option>
+    <div class="col-md-12">
       <!-- baue options per blade function -->
       @foreach($options as $index => $option)
-        @if($value == $index)
-          <option value="{{ $index }}" selected="selected">{{ $option }}</option>
-        @else
-          <option value="{{ $index }}">{{ $option }}</option>
-        @endif
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" name="{{ $name }}"
+            id="{{ $name }}_{{ $index }}" value="{{ $index }}">
+          <label class="form-check-label" for="{{ $name }}_{{ $index }}">
+            {{ $option }}
+          </label>
+        </div>
       @endforeach
-    </select>
+    </div>
 
     <span class="d-block text-info">
       <strong>{{ $msg ?? '' }}</strong>

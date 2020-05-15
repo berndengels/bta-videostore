@@ -2,9 +2,9 @@
   <label for="{{ $name }}"
     class="col-md-2 col-form-label">{{ __(ucfirst($name)) }}</label>
   <div class="col-md-10">
-    <input type="email" id="{{ $name }}" name="{{ $name }}"
-      value="{{ $value ?? '' }}"
-      class="form-control @error('title') is-invalid @enderror col-md-12 px-1" />
+
+    <textarea name="{{ $name }}" id="{{ $name }}" cols="30" rows="10"
+      class="form-control @error('title') is-invalid @enderror col-md-12 px-1"></textarea>
 
     <span class="d-block text-info">
       <strong>{{ $msg ?? '' }}</strong>

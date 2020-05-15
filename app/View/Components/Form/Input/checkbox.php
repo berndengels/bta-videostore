@@ -3,9 +3,8 @@
 namespace App\View\Components\Form\Input;
 
 use Illuminate\View\Component;
-use Illuminate\View\View;
 
-class Select extends Component
+class checkbox extends Component
 {
     public $name;
     public $value;
@@ -27,10 +26,10 @@ class Select extends Component
     /**
      * Get the view / contents that represent the component.
      *
-     * @return View|string
+     * @return \Illuminate\View\View|string
      */
     public function render()
     {
-        return view('components..form.input.select');
+        return view('components..form.input.checkbox');
     }
 }
