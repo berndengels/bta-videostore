@@ -27,7 +27,7 @@ fi
 appKey=$(grep ^APP_KEY .env|awk -F "=" '{print $2}')
 if [ "$appKey" == "" ]; then
     echo "no APP_KEY found, will generate the key"
-    php artisan key:generate
+    php artisan key:generate --ansi
 else
     echo "APP_KEY seems to be valid: $appKey"
 fi

@@ -1,7 +1,8 @@
-<input
+<textarea
     class="form-control @error('title') is-invalid @enderror col-md-12 px-1"
-    type="text"
+    cols="50"
+    rows="6"
     id="{{ $name }}"
     name="{{ $name }}"
-    value="{{ $value }}"
-/>
+>{{ $value ?? ''}}</textarea>
+

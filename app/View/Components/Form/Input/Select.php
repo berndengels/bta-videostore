@@ -23,6 +23,11 @@ class Select extends Component
         $this->options = $options;
     }
 
+    public function isSelected($option)
+    {
+        return $option === $this->selected;
+    }
+
     /**
      * Get the view / contents that represent the component.
      *

@@ -2,26 +2,11 @@
 
 namespace App\View\Components\Form\Input;
 
-use Illuminate\View\Component;
 use Illuminate\View\View;
+use App\View\Components\Form\Field;
 
-class Text extends Component
+class Text extends Field
 {
-    public $name;
-    public $value;
-    public $msg;
-    /**
-     * Create a new component instance.
-     *
-     * @return void
-     */
-    public function __construct($name, $value, $msg = null)
-    {
-        $this->name = $name;
-        $this->value = $value;
-        $this->msg = $msg;
-    }
-
     /**
      * Get the view / contents that represent the component.
      *

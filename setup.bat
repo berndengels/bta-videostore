@@ -14,7 +14,7 @@ if NOT exist .htaccess (
     copy htaccess-tpl .htaccess
 )
 
-php artisan key:generate
+php artisan key:generate --ansi
 
 echo clear all caches
 php artisan cache:clear
