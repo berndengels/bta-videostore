@@ -2,7 +2,7 @@
     <label for="{{ $name }}" class="col-md-2 col-form-label">{{ ucfirst($name) }}</label>
     <div class="col-md-10">
         <input
-            type="text"
+            type="date"
             id="{{ $name }}"
             name="{{ $name }}"
             value="{{ $value ?? '' }}"

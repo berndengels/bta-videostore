@@ -1,11 +1,10 @@
 <?php
-
 namespace App\View\Components\Form\Input;
 
 use App\View\Components\Form\Field;
 use Illuminate\View\View;
 
-class Select extends Field
+class Radio extends Field
 {
     /**
      * Get the view / contents that represent the component.
@@ -13,6 +12,6 @@ class Select extends Field
      */
     public function render()
     {
-        return view('components..form.input.select');
+        return view('components..form.input.radio');
     }
 }
