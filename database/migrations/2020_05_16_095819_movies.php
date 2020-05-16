@@ -13,10 +13,12 @@ class Movies extends Migration
      */
     public function up()
     {
+        $this->down();
         Schema::create('movies', function (Blueprint $table) {
             $table->unsignedInteger('id', true);
-            $table->foreignId('author_id')
-                ->unsigned()
+            $table->unsignedInteger('author_id');
+            $table->index('author_id');
+            $table->foreign('author_id')
                 ->references('id')
                 ->on('authors')
                 ->onDelete('cascade')
@@ -25,7 +27,7 @@ class Movies extends Migration
             $table->string('title', 100);
             $table->unsignedDecimal('price');
             $table->timestamps();
-            $table->index(['author_id','title','price']);
+            $table->index(['title','price']);
         });
     }
 
