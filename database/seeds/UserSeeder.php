@@ -1,8 +1,9 @@
 <?php
 
+use App\User;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
-use App\User;
+use Illuminate\Support\Facades\Hash;
 
 class UserSeeder extends Seeder
 {
@@ -13,16 +14,13 @@ class UserSeeder extends Seeder
      */
     public function run()
     {
-        try {
-            DB::table('users')->truncate();
-            DB::table('users')->insert([
-                'name'      => 'admin',
-                'email'     => 'admin@gmail.com',
-                'password'  => Hash::make('password'),
-            ]);
-            $this->command->info('User table seeded!');
-        } catch(Exception $e) {
-            $this->command->error('seed error: '. $e->getMessage());
-        }
+//        User::unguard();
+        $user = User::whereName('admin')->first() ?? new User();
+        $user->name     = 'admin';
+        $user->email    = 'admin@gmail.com';
+        $user->password = Hash::make('password');
+        $user->is_admin = 1;
+        $user->saveOrFail();
+        $this->command->info('User table seeded!');
     }
 }
