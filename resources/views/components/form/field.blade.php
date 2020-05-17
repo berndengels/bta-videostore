@@ -8,7 +8,7 @@
                 'name'  => $name,
                 'value' => $value,
             ])
-            <label for="{{ $value }}" class="d-inline-block form-check-label ml-2">{{ __(ucfirst($value)) }}</label>
+            <label for="{{ $value }}" class="d-inline-block form-check-label ml-2">{{ ucfirst($value) }}</label>
 
             @error($name)
             <span class="d-block invalid-feedback" role="alert">
