@@ -35,10 +35,12 @@ class FormController extends Controller
         /**
          * @var $image UploadedFile
          */
-        $image = $request->image;
+        $data   = $request->except('_token');
+        $image  = $request->image;
         if($image) {
             $image->storePubliclyAs('public/images', $image->getClientOriginalName());
+            $data['image'] = url('/storage/images/'.$image->getClientOriginalName());
         }
-        dd($request->except('_token'));
+        return view('send', compact('data'));
     }
 }
