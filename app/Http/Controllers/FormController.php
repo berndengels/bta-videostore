@@ -17,18 +17,18 @@ class FormController extends Controller
             'uhrzeit'       => '19:00',
             'nachricht'     => 'Lorem ipsum und so weiter ...',
             'agb'           => true,
-            'gender'        => 'male',
+            'gender'        => 'female',
             'abschicken'    => 'abschicken',
         ];
         $optionsAnrede = [
             'Herr'   => 'Herr',
             'Frau'   => 'Frau',
         ];
-        $optionsRadio = [
+        $optionsGender = [
             'male',
             'female',
         ];
-        return view('form', compact('optionsAnrede','optionsRadio', 'values'));
+        return view('form', compact('optionsAnrede','optionsGender', 'values'));
     }
 
     public function send(Request $request) {

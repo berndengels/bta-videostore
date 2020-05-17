@@ -17,7 +17,7 @@
                         <x-form.input.time name="uhrzeit" :value="$values['uhrzeit']" />
                         <x-form.input.textarea name="nachricht" :value="$values['nachricht']" />
                         <x-form.input.checkbox name="agb" :value="$values['agb']" />
-                        <x-form.input.radio name="gender" :value="$values['gender']" :options="$optionsRadio" />
+                        <x-form.input.radio name="gender" :value="$values['gender']" :options="$optionsGender" />
                         <x-form.input.submit name="abschicken" :value="$values['abschicken']" />
                     </form>
                 </div>
