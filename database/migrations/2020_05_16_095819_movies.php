@@ -18,7 +18,8 @@ class Movies extends Migration
             $table->unsignedInteger('id', true);
             $table->unsignedInteger('author_id');
             $table->index('author_id');
-            $table->foreign('author_id')
+            $table
+                ->foreign('author_id')
                 ->references('id')
                 ->on('authors')
                 ->onDelete('cascade')

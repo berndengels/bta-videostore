@@ -9,18 +9,18 @@ class UserSeeder extends Seeder
 {
     /**
      * Run the database seeds.
-     *
      * @return void
      */
     public function run()
     {
-        User::unguard();
-        $user = User::whereName('admin')->first() ?? new User();
-        $user->name     = 'admin';
-        $user->email    = 'admin@gmail.com';
-        $user->password = Hash::make('password');
-        $user->is_admin = 1;
-        $user->saveOrFail();
-        $this->command->info('User table seeded!');
+        DB::unprepared('LOCK TABLES users WRITE');
+        $data = [
+            'name'      => 'admin',
+            'email'     => 'admin@gmail.com',
+            'password'  => Hash::make('password'),
+            'is_admin'  => 1,
+        ];
+        DB::table('users')->insertOrIgnore($data);
+        DB::unprepared('UNLOCK TABLES');
     }
 }
