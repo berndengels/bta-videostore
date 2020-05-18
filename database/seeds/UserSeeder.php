@@ -14,7 +14,7 @@ class UserSeeder extends Seeder
      */
     public function run()
     {
-//        User::unguard();
+        User::unguard();
         $user = User::whereName('admin')->first() ?? new User();
         $user->name     = 'admin';
         $user->email    = 'admin@gmail.com';
