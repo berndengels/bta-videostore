@@ -37,6 +37,7 @@ class FormController extends Controller
          */
         $data   = $request->except('_token');
         $image  = $request->image;
+
         if($image) {
             $image->storePubliclyAs('public/images', $image->getClientOriginalName());
             $data['image'] = url('/storage/images/'.$image->getClientOriginalName());

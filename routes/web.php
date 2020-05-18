@@ -32,12 +32,14 @@ Route::get('/hallo', function () {
 });
 
 Route::get('/test', 'TestController@show')->name('test');
-
 Route::get('/form', 'FormController@form')->name('form');
 Route::post('/send', 'FormController@send')->name('send');
-
 Route::get('/home', 'HomeController@index')->name('home');
 
+Route::get('/example', 'ExampleController@show');
+
+/*
 Route::fallback(function(){
     return redirect()->route('welcome');
 });
+*/
