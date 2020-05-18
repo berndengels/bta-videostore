@@ -12,6 +12,6 @@ class Radio extends Field
      */
     public function render()
     {
-        return view('components..form.input.radio');
+        return view('components.form.input.radio');
     }
 }

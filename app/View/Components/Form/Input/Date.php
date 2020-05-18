@@ -12,6 +12,6 @@ class Date extends Field
      */
     public function render()
     {
-        return view('components..form.input.date');
+        return view('components.form.input.date');
     }
 }
