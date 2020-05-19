@@ -32,6 +32,7 @@ Route::get('/hallo', function () {
 });
 
 Route::get('/authors', 'TestController@show')->name('test');
+Route::get('/movies', 'TestController@movies')->name('movies');
 Route::get('/form', 'FormController@form')->name('form');
 Route::post('/send', 'FormController@send')->name('send');
 Route::get('/home', 'HomeController@index')->name('home');

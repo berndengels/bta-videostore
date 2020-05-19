@@ -16,4 +16,15 @@ class TestController extends Controller
             'authors'   => $authors,
         ]);
     }
+
+    public function movies()
+    {
+        // gib mir eine view mit alles movie titeln aus
+        $movies = DB::table('movies')->get();
+
+        return view('movies', [
+            'header' => 'Alle Filme',
+            'movies' => $movies
+        ]);
+    }
 }
