@@ -1,20 +1,13 @@
 @extends('layouts.simple')
 
-@section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ $header }}</div>
-                <div class="card-body">
-                    <ul>
-                        @foreach($liste as $li)
-                            <li>{{ $li }}</li>
-                        @endforeach
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
+@section('header')
+    Meine Autoren ({{ $authors->count() }})
+@endsection
+
+@section('body')
+    <ul>
+        @foreach($authors as $autor)
+            <li>{{ $autor->firstname }} {{ $autor->lastname }}</li>
+        @endforeach
+    </ul>
 @endsection

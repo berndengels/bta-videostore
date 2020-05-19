@@ -3,16 +3,17 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class TestController extends Controller
 {
     public function show()
     {
-        $liste = ['Hans','Ina','Paul'];
+        $authors = DB::table('authors')->get();
 
         return view('test', [
-            'header' => 'Meine Test Page',
-            'liste' => $liste
+            'header'    => 'Meine Autoren',
+            'authors'   => $authors,
         ]);
     }
 }
