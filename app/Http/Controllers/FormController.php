@@ -17,7 +17,7 @@ class FormController extends Controller
             'uhrzeit'       => '19:00',
             'nachricht'     => 'Lorem ipsum und so weiter ...',
             'agb'           => true,
-            'gender'        => 'female',
+            'gender'        => 'male',
             'abschicken'    => 'abschicken',
         ];
         $optionsAnrede = [

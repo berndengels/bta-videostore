@@ -5,9 +5,10 @@
 @endsection
 
 @section('body')
+    {{ $data->links() }}
     <ul>
-        @foreach($authors as $autor)
-            <li>{{ $autor->firstname }} {{ $autor->lastname }}</li>
+        @foreach($data as $item)
+            <li>{{ $item->firstname }} {{ $item->lastname }}</li>
         @endforeach
     </ul>
 @endsection
