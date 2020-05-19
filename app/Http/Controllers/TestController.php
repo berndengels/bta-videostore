@@ -18,7 +18,7 @@ class TestController extends Controller
     }
 
     public function movies() {
-        $movies = DB::table('movies')->get();
+        $movies = DB::table('movies')->paginate(15);
 
         return view('movies', [
             'movies' => $movies,
