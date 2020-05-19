@@ -42,6 +42,7 @@ Route::get('/example', 'ExampleController@show');
 
 // autoren rooten
 Route::get('/autoren', 'AuthorController@index')->name('autoren');
+Route::get('/autor/{id}', 'AuthorController@show')->name('autor');
 
 
 Route::fallback(function(){
