@@ -16,4 +16,8 @@ class TestController extends Controller
             'authors'   => $authors,
         ]);
     }
+
+    public function movies() {
+        // gib mir eine view mit allen movie titeln aus
+    }
 }

@@ -32,6 +32,7 @@ Route::get('/hallo', function () {
 });
 
 Route::get('/test', 'TestController@show')->name('test');
+// hier neue route für movies erstellen mit route 'movie' und action 'TestController@movies'
 Route::get('/form', 'FormController@form')->name('form');
 Route::post('/send', 'FormController@send')->name('send');
 Route::get('/home', 'HomeController@index')->name('home');

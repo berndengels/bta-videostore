@@ -1,7 +1,7 @@
 @extends('layouts.simple')
 
 @section('header')
-    Meine Autoren ({{ $authors->count() }})
+    Meine Autoren
 @endsection
 
 @section('body')
