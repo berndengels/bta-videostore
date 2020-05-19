@@ -40,6 +40,7 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/example', 'ExampleController@show');
 
+// autoren rooten
 Route::get('/autoren', 'AuthorController@index')->name('autoren');
 
 
