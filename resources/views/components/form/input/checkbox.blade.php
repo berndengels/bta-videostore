@@ -1,19 +1,28 @@
 <div class="form-group row">
-    <label for="{{ $name }}" class="col-md-2 col-form-label">{{ ucfirst($name) }}</label>
-    <div class="col-md-1">
-        <input
-            type="checkbox"
-            id="{{ $name }}"
-            name="{{ $name }}"
-            value="{{ $value ?? '0' }}"
-            class="form-control-sm @error('title') is-invalid @enderror col-md-12 px-1"
-            @if(!!$value) checked @endif
-        />
-
-        @error($name)
-        <span class="d-block invalid-feedback" role="alert">
-            <strong>{{ $errors->first($name) }}</strong>
-        </span>
-        @enderror
+  <label for="{{ $name }}"
+    class="col-md-2 col-form-label">{{ __(ucfirst($name)) }}</label>
+  <div class="col-md-10">
+    <div class="col-md-12">
+      <!-- baue options per blade function -->
+      @foreach($options as $index => $option)
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" name="{{ $name }}"
+            id="{{ $name }}_{{ $index }}" value="{{ $index }}">
+          <label class="form-check-label" for="{{ $name }}_{{ $index }}">
+            {{ $option }}
+          </label>
+        </div>
+      @endforeach
     </div>
+
+    <span class="d-block text-info">
+      <strong>{{ $msg ?? '' }}</strong>
+    </span>
+
+    @error($name)
+    <span class="d-block invalid-feedback" role="alert">
+      <strong>{{ $errors->first($name) }}</strong>
+    </span>
+    @enderror
+  </div>
 </div>
