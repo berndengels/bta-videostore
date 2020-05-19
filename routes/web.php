@@ -31,7 +31,7 @@ Route::get('/hallo', function () {
     return view('hallo', ['message' => $msg, 'options' => $options]);
 });
 
-Route::get('/authors', 'TestController@show')->name('test');
+Route::get('/test', 'TestController@show')->name('test');
 Route::get('/form', 'FormController@form')->name('form');
 Route::post('/send', 'FormController@send')->name('send');
 Route::get('/home', 'HomeController@index')->name('home');
