@@ -18,6 +18,10 @@ class TestController extends Controller
     }
 
     public function movies() {
-        // gib mir eine view mit allen movie titeln aus
+        $movies = DB::table('movies')->get();
+
+        return view('movies', [
+            'movies' => $movies,
+        ]);
     }
 }
