@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Models\Author;
-use Illuminate\Http\Request;
 
 class AuthorController extends Controller
 {
@@ -12,7 +11,8 @@ class AuthorController extends Controller
         return view('autoren', compact('data'));
     }
 
-    public function show() {
-
+    public function show( $id ) {
+        $data = Author::find($id);
+        return view('autor', compact('data'));
     }
 }

@@ -6,4 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Author extends Model
 {
+    public function movies() {
+        return $this->hasMany(Movie::class);
+    }
 }
