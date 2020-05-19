@@ -40,8 +40,9 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/example', 'ExampleController@show');
 
-/*
+Route::get('/autoren', 'AuthorController@index')->name('autoren');
+
+
 Route::fallback(function(){
     return redirect()->route('welcome');
 });
-*/
