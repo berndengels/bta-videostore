@@ -12,7 +12,6 @@ class MovieSeeder extends Seeder
      */
     public function run()
     {
-//        DB::table('movies')->truncate();
         $path = base_path() . '/database/dumps/movies_data.sql';
         DB::unprepared(file_get_contents($path));
         $this->command->info('movies data seeded!');

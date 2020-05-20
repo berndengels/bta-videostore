@@ -12,7 +12,6 @@ class AuthorSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('users')->truncate();
         $path = base_path() . '/database/dumps/authors_data.sql';
         DB::unprepared(file_get_contents($path));
         $this->command->info('authors data seeded!');
