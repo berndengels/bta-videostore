@@ -3,25 +3,25 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
-/*
-class TestController extends Controller
-{
-    public function show() {
-        return view('test'), ['message' =>]
-    }
-}
-*/
+use Illuminate\Support\Facades\DB;
 
 class TestController extends Controller
 {
     public function show()
     {
+        $authors = DB::table('authors')->get();
 
-        $liste = ['Hans' , 'Tamas', 'Ervin' ];
         return view('test', [
-            'header' => 'Meine Test Page Header-böl' ,
-            'liste' => $liste
+            'header'    => 'Meine Autoren',
+            'authors'   => $authors,
+        ]);
+    }
+
+    public function movies() {
+        $movies = DB::table('movies')->paginate(15);
+
+        return view('movies', [
+            'movies' => $movies,
         ]);
     }
 }

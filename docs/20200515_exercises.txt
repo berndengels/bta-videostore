@@ -19,6 +19,7 @@ definiert und kein einziger in der View.
 
 4. Erstellt eine neue Route (als methode: get) in routes/web.php mit der Route '/form'. Diese soll den
 FormController mit der Funktion (Methode) 'form' aufrufen. Der Name der Route soll 'form' heissen.
+Controller: 'FormController@form'
 
 5. Bitte die Laravel Doku zu Frontend -> Blade Templates studieren:
 https://laravel.com/docs/7.x/blade
