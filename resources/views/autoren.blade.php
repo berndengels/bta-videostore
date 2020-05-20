@@ -10,7 +10,8 @@
         @foreach($data as $item)
             <li>
                 <a href="{{ route('autor', ['id' => $item->id]) }}">
-                    {{ $item->firstname }} {{ $item->lastname }}</a>
+                    {{ $item->name }}
+                </a>
 
                 ({{ $item->movies->count() }} Movies)
             </li>
