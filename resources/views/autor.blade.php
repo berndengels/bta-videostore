@@ -6,8 +6,7 @@
 
 @section('body')
     ID: {{ $data->id }}<br>
-    Firstname: {{ $data->firstname }}<br>
-    Lastname: {{ $data->lastname }}<br>
+    Name: {{ $data->name }}<br>
     Movies: {{ $data->movies->count() }}<br>
     <ol>
         @foreach($data->movies as $film)
