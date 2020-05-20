@@ -8,7 +8,12 @@
     {{ $data->links() }}
     <ul>
         @foreach($data as $item)
-            <li>{{ $item->firstname }} {{ $item->lastname }}</li>
+            <li>
+                <a href="{{ route('autor', ['id' => $item->id]) }}">
+                    {{ $item->firstname }} {{ $item->lastname }}</a>
+
+                ({{ $item->movies->count() }} Movies)
+            </li>
         @endforeach
     </ul>
 @endsection
