@@ -6,11 +6,15 @@
 
 @section('body')
     <div>
-        <a href="{{ route('author.list') }}" class="btn-sm btn-primary" role="button">Zurück</a>
+        <a href="{{ route('author.list') }}"
+           class="btn-sm btn-primary" role="button">Zurück</a>
     </div>
     <div class="my-2">
         <form method="post" action="{{ route('author.update', compact('author')) }}">
             @csrf
+            <!-- see: app/Providers/AppServiceProvider.php
+            -> boot function for setting components aliases
+            //-->
             <x-inp.text name="firstname" label="Vorname" :value="$author->firstname" />
             <x-inp.text name="lastname" label="Nachname" :value="$author->lastname" />
             <x-inp.submit name="speichern" value="speichern" />
