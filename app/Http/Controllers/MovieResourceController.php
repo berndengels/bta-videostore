@@ -3,22 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Models\Movie;
-use App\Models\Author;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
-use App\Http\Requests\MovieRequest;
 
-class MovieController extends Controller
+class MovieResourceController extends Controller
 {
-    protected $auhtorOptions;
-
-    public function __construct()
-    {
-        $this->auhtorOptions = Author::all()->keyBy('id')->map(function ($item) {
-            return $item->name;
-        });
-    }
-
     /**
      * Display a listing of the resource.
      *
@@ -26,8 +15,7 @@ class MovieController extends Controller
      */
     public function index()
     {
-        $data = Movie::orderBy('title')->paginate(15);
-        return view('movies', compact('data'));
+        //
     }
 
     /**
@@ -38,7 +26,7 @@ class MovieController extends Controller
      */
     public function show(Movie $movie)
     {
-        return view('movie', compact('movie'));
+        //
     }
 
     /**
@@ -48,7 +36,7 @@ class MovieController extends Controller
      */
     public function create()
     {
-        return view('admin.movie.create', ['options' => $this->auhtorOptions]);
+        //
     }
 
     /**
@@ -57,10 +45,9 @@ class MovieController extends Controller
      * @param Request $request
      * @return Response
      */
-    public function store(MovieRequest $request)
+    public function store(Request $request)
     {
-        Movie::create($request->validated());
-        return redirect()->route('movie.list');
+        //
     }
 
     /**
@@ -71,7 +58,7 @@ class MovieController extends Controller
      */
     public function edit(Movie $movie)
     {
-        return view('admin.movie.edit', ['movie' => $movie, 'options' => $this->auhtorOptions]);
+        //
     }
 
     /**
@@ -81,10 +68,9 @@ class MovieController extends Controller
      * @param Movie $movie
      * @return Response
      */
-    public function update(MovieRequest $request, Movie $movie)
+    public function update(Request $request, Movie $movie)
     {
-        $movie->update($request->validated());
-        return redirect()->route('movie.list');
+        //
     }
 
     /**
@@ -95,7 +81,6 @@ class MovieController extends Controller
      */
     public function destroy(Movie $movie)
     {
-        $movie->delete();
-        return redirect()->route('movie.list');
+        //
     }
 }

@@ -29,10 +29,10 @@
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav mr-auto">
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('autoren') }}">{{ __('Autoren') }}</a>
+                            <a class="nav-link" href="{{ route('author.list') }}">{{ __('Autoren') }}</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('movies') }}">{{ __('Movies') }}</a>
+                            <a class="nav-link" href="{{ route('movie.list') }}">{{ __('Movies') }}</a>
                         </li>
                     </ul>
 
@@ -80,6 +80,11 @@
                             <div class="card-header">
                                 @yield('header')
                             </div>
+
+                            @if(session('alert'))
+                                <x-alert type="{{ session('alert') }}" message="{{ session('message') }}" />
+                            @endif
+
                             <div class="card-body">
                                 @yield('body')
                             </div>

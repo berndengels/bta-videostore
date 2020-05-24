@@ -4,10 +4,10 @@
             type="submit"
             id="{{ $name }}"
             name="{{ $name }}"
-            value="{{ $value ?? '' }}"
+            value="{{ $value ?? 'Submit' }}"
             role="button"
             class="btn btn-primary col-md-auto px-5"
         />
-
+        {{ $slot }}
     </div>
 </div>

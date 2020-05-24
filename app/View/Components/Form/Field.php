@@ -8,6 +8,8 @@ abstract class Field extends Component
 {
     public $name;
     public $value;
+    public $label;
+    public $class;
     public $options;
 
     /**
@@ -15,10 +17,12 @@ abstract class Field extends Component
      *
      * @return void
      */
-    public function __construct($name, $value, $options = null)
+    public function __construct($name, $value = null, $label = null, $class = null, $options = null)
     {
         $this->name     = $name;
         $this->value    = $value;
+        $this->label    = $label;
+        $this->class    = $class;
         $this->options  = $options;
     }
 

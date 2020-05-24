@@ -1,4 +1,4 @@
-@extends('layouts.simple')
+@extends('layouts.default')
 
 @section('header')
     Meine Movies
@@ -17,13 +17,15 @@
             <th>Preis</th>
             <th>Created at</th>
             <th>Updated at</th>
+            @auth
             <th colspan="2"></th>
+            @endauth
         </tr>
         @foreach($data as $item)
             <tr>
                 <td>{{ $item->id }}</td>
                 <td>{{ $item->author->name }}</td>
-                <td><a class="nav-link" href="{{ route('movie', ['movie' => $item]) }}">{{ $item->title }}</a></td>
+                <td><a class="nav-link" href="{{ route('movie.show', ['movie' => $item]) }}">{{ $item->title }}</a></td>
                 <td>{{ $item->price }}</td>
                 <td>{{ $item->created_at->format('d.m.Y H:i') }}</td>
                 <td>{{ $item->updated_at->format('d.m.Y H:i') }}</td>

@@ -1,4 +1,4 @@
-@extends('layouts.simple')
+@extends('layouts.default')
 
 @section('header')
     Autor: {{ $movie->author->name }}

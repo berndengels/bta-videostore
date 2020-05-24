@@ -14,7 +14,7 @@ class MovieRequest extends FormRequest
      */
     public function authorize()
     {
-        return (bool) Auth::user()->is_admin;
+        return Auth::check() && Auth::user()->is_admin;
     }
 
     /**
@@ -27,7 +27,7 @@ class MovieRequest extends FormRequest
         return [
             'author_id' => 'required',
             'title'     => 'required',
-            'price'     => 'required',
+            'price'     => 'required|numeric',
             'created_at' => '',
             'updated_at' => '',
         ];
@@ -39,6 +39,7 @@ class MovieRequest extends FormRequest
             'author_id.required' => 'Bitte einen Autor auswählen!',
             'title.required'     => 'Bitte einen Titel angeben!',
             'price.required'     => 'Bitte einen Preis angeben!',
+            'price.numeric'      => 'Der Preis muß numerisch sein!',
         ];
     }
 }
