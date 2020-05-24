@@ -11,10 +11,10 @@
     <div class="my-2">
         <form method="post" action="{{ route('movie.update', compact('movie')) }}">
             @csrf
-            <x-form.input.select name="author_id" label="Autor" :value="$movie->author->id" :options="$options" />
-            <x-form.input.text name="title" label="Titel" :value="$movie->title" />
-            <x-form.input.text name="price" label="Preis" :value="$movie->price" />
-            <x-form.input.submit name="speichern" value="speichern" />
+            <x-inp.select name="author_id" label="Autor" :value="$movie->author->id" :options="$options" />
+            <x-inp.text name="title" label="Titel" :value="$movie->title" />
+            <x-inp.text name="price" label="Preis" :value="$movie->price" />
+            <x-inp.submit name="speichern" value="speichern" />
         </form>
     </div>
 @endsection

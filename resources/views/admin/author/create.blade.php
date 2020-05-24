@@ -11,9 +11,9 @@
     <div class="my-2">
         <form method="post" action="{{ route('author.store') }}">
             @csrf
-            <x-form.input.text name="firstname" label="Vorname" />
-            <x-form.input.text name="lastname" label="Nachname" />
-            <x-form.input.submit name="speichern" value="speichern" />
+            <x-inp.text name="firstname" label="Vorname" />
+            <x-inp.text name="lastname" label="Nachname" />
+            <x-inp.submit name="speichern" value="speichern" />
         </form>
     </div>
 @endsection

@@ -11,10 +11,10 @@
     <div class="my-2">
         <form method="post" action="{{ route('movie.store') }}">
             @csrf
-            <x-form.input.select name="author_id" label="Autor" :options="$options" />
-            <x-form.input.text name="title" label="Titel" />
-            <x-form.input.text name="price" label="Preis" />
-            <x-form.input.submit name="speichern" value="speichern" />
+            <x-inp.select name="author_id" label="Autor" :options="$options" />
+            <x-inp.text name="title" label="Titel" />
+            <x-inp.text name="price" label="Preis" />
+            <x-inp.submit name="speichern" value="speichern" />
         </form>
     </div>
 @endsection

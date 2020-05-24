@@ -33,6 +33,11 @@ class MovieRequest extends FormRequest
         ];
     }
 
+    /**
+     * Get the validation messages that apply to the rules.
+     *
+     * @return array
+     */
     public function messages()
     {
         return [

@@ -11,9 +11,9 @@
     <div class="my-2">
         <form method="post" action="{{ route('author.update', compact('author')) }}">
             @csrf
-            <x-form.input.text name="firstname" label="Vorname" :value="$author->firstname" />
-            <x-form.input.text name="lastname" label="Nachname" :value="$author->lastname" />
-            <x-form.input.submit name="speichern" value="speichern" />
+            <x-inp.text name="firstname" label="Vorname" :value="$author->firstname" />
+            <x-inp.text name="lastname" label="Nachname" :value="$author->lastname" />
+            <x-inp.submit name="speichern" value="speichern" />
         </form>
     </div>
 @endsection

@@ -5,6 +5,10 @@
 @endsection
 
 @section('body')
+    <div class="my-2">
+        <a href="{{ route('author.create') }}" class="btn-sm btn-primary" role="button">Create Autor</a>
+    </div>
+
     {{ $data->links() }}
     <table class="table table-striped table-responsive">
         <tr>
@@ -15,6 +19,7 @@
                 <th colspan="2"><br></th>
             @endauth
         </tr>
+
         @foreach($data as $item)
             <tr>
                 <td>{{ $item->id }}</td>
