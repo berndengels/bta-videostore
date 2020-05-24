@@ -6,6 +6,9 @@ mit dem Namen "comments" erstellen mit folgenden Spalten:
 - id (integer unsigned autoincrement)
 - movie_id (integer unsigned)
 - message (type text)
+- created_at (datetime)
+- updated_at (datetime)
+
 Führt anschliessend die Migration aus mit: php artisan migrate
 Überprüft bitte, ob die Tabelle erstellt wurde.
 
