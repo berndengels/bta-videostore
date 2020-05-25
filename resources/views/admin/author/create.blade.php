@@ -17,7 +17,7 @@
             //-->
             <x-inp.text name="firstname" label="Vorname" />
             <x-inp.text name="lastname" label="Nachname" />
-            <x-inp.submit name="speichern" value="speic hern" />
+            <x-inp.submit name="speichern" value="speichern" />
         </form>
     </div>
 @endsection

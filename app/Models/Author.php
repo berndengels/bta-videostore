@@ -9,6 +9,7 @@ class Author extends Model
 {
     protected $fillable = ['firstname','lastname'];
     protected $appends = ['name'];
+    // habe keine spalten created_at, updated_at
     public $timestamps = false;
 
     /**

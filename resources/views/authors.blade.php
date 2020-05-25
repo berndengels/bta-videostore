@@ -7,7 +7,7 @@
 @section('body')
     <div class="my-2">
         <a href="{{ route('author.create') }}"
-           class="btn-sm btn-primary" role="button">Create Autor</a>
+           class="btn-sm btn-primary" role="button">Create Author</a>
     </div>
 
     {{ $data->links() }}

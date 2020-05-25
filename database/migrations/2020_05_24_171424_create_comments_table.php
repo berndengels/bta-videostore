@@ -27,7 +27,6 @@ class CreateCommentsTable extends Migration
             ;
             $table->text('message');
             $table->timestamps();
-
         });
     }
 

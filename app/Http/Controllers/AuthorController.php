@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Author;
 use App\Http\Requests\AuthorRequest;
+use Illuminate\Http\Request;
 
 class AuthorController extends Controller
 {
@@ -23,7 +24,7 @@ class AuthorController extends Controller
         return view('admin.author.create');
     }
 
-    public function store(AuthorRequest $request)
+    public function store( AuthorRequest $request )
     {
         Author::create($request->validated());
         return redirect()->route('author.list');
@@ -36,7 +37,15 @@ class AuthorController extends Controller
 
     public function update(AuthorRequest $request, Author $author)
     {
+        // wir haben im model $fillable mit spaltennamen gesetzt
         $author->update($request->validated());
+/*
+        // oder spalten einzeln setzen mit werten
+        $author->firstname = $request->post('firstname');
+        $author->lastname = $request->post('lastname');
+        // alles speichern
+        $author->save();
+*/
         return redirect()->route('author.list');
     }
 

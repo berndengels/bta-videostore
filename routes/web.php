@@ -28,14 +28,15 @@ Route::name('author.')
             ->middleware('auth')
         ;
         $route->get('/edit/{author}', 'AuthorController@edit')
-            ->name('edit')->middleware('auth')
-        ;
-        $route->get('/destroy/{author}', 'AuthorController@destroy')
-            ->name('destroy')
+            ->name('edit')
             ->middleware('auth')
         ;
         $route->post('/update/{author}', 'AuthorController@update')
             ->name('update')
+            ->middleware('auth')
+        ;
+        $route->get('/destroy/{author}', 'AuthorController@destroy')
+            ->name('destroy')
             ->middleware('auth')
         ;
         $route->get('/list', 'AuthorController@index')->name('list');
@@ -56,6 +57,6 @@ Route::name('movie.')
 });
 //Route::resource('MovieResource', 'MovieResourceController');
 
-Route::fallback(function(){
+Route::fallback(function() {
     return redirect()->route('home');
 });
