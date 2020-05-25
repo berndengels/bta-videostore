@@ -88,12 +88,12 @@
 					"urlencoded": [
 						{
 							"key": "title",
-							"value": "",
+							"value": "Zähne putzen",
 							"type": "text"
 						},
 						{
 							"key": "done",
-							"value": "",
+							"value": "0",
 							"type": "text"
 						}
 					]
