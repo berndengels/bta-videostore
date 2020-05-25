@@ -27,8 +27,11 @@ class CheckActionAccess
     public function handle($request, Closure $next, $guard = null)
     {
         $action = $request->route()->getActionMethod();
+        // wenn nicht eingeloggt und schreib-actions (protected array) aufgerufen werden
         if(in_array($action, $this->protected) && auth()->guest()) {
-            if (! $request->expectsJson()) {
+            // wenn kein ajax oder api request vorliegt
+            if (false === $request->expectsJson()) {
+                // dann leite zur login seite um
                 return redirect()->route('login');
             }
         }
