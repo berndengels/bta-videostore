@@ -41,7 +41,7 @@ class MoviePolicy
      */
     public function create(User $user)
     {
-        return $user->is_admin;
+        return true;
     }
 
     /**
@@ -53,7 +53,7 @@ class MoviePolicy
      */
     public function update(User $user, Movie $movie)
     {
-        return $user->id === $movie->updated_by;
+        return $user->id === $movie->created_by || $user->is_admin;
     }
 
     /**
@@ -65,7 +65,7 @@ class MoviePolicy
      */
     public function delete(User $user, Movie $movie)
     {
-        return $user->id === $movie->created_by;
+        return $user->id === $movie->created_by || $user->is_admin;
     }
 
     /**

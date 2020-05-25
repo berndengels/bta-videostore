@@ -9,10 +9,6 @@
         <div class="my-2">
             <a href="{{ route('movie.create') }}" class="btn-sm btn-primary" role="button">Create Movie</a>
         </div>
-    @else
-        <div class="my-2">
-            <span class="text-danger">User {{ auth()->user() }} can't create</span>
-        </div>
     @endcan
     {{ $data->links() }}
     <table class="table table-striped table-responsive">
