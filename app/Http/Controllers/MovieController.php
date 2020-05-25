@@ -7,6 +7,7 @@ use App\Models\Author;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use App\Http\Requests\MovieRequest;
+use Illuminate\Support\Facades\Auth;
 
 class MovieController extends Controller
 {

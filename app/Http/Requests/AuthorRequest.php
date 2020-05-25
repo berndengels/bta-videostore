@@ -13,7 +13,7 @@ class AuthorRequest extends FormRequest
      */
     public function authorize()
     {
-        return Auth::check() && Auth::user()->is_admin;
+        return true;
     }
 
     /**

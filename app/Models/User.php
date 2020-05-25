@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Contracts\Auth\MustVerifyEmail;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 
@@ -35,4 +36,25 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    /**
+     * @return HasMany
+     */
+    public function moviesCreated()
+    {
+        return $this->hasMany(Movie::class, 'created_by', 'id');
+    }
+
+    /**
+     * @return HasMany
+     */
+    public function moviesUpdated()
+    {
+        return $this->hasMany(Movie::class, 'updated_by', 'id');
+    }
+
+    public function __toString()
+    {
+        return $this->name;
+    }
 }

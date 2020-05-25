@@ -2,6 +2,8 @@
 
 namespace App\Providers;
 
+use App\Models\Movie;
+use App\Policies\MoviePolicy;
 use App\View\Components\Form\Input\Checkbox;
 use App\View\Components\Form\Input\Date;
 use App\View\Components\Form\Input\Email;
@@ -18,6 +20,7 @@ use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
 {
+
     /**
      * Register any application services.
      *
