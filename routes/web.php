@@ -13,38 +13,49 @@ use Illuminate\Support\Facades\Route;
 |
 */
 Auth::routes();
+Route::get('/', 'HomeController@index')->name('home');
 
-Route::get('/', function () {
-    // hole view: resources/views/welcome.blade.php
-    return view('welcome');
-})->name('welcome');
+// author routen
+Route::name('author.')
+    ->prefix('author')
+    ->group(function ($route) {
+        $route->get('/create', 'AuthorController@create')
+            ->name('create')
+            ->middleware('auth')
+        ;
+        $route->post('/store', 'AuthorController@store')
+            ->name('store')
+            ->middleware('auth')
+        ;
+        $route->get('/edit/{author}', 'AuthorController@edit')
+            ->name('edit')->middleware('auth')
+        ;
+        $route->get('/destroy/{author}', 'AuthorController@destroy')
+            ->name('destroy')
+            ->middleware('auth')
+        ;
+        $route->post('/update/{author}', 'AuthorController@update')
+            ->name('update')
+            ->middleware('auth')
+        ;
+        $route->get('/list', 'AuthorController@index')->name('list');
+        $route->get('/autor/{author}', 'AuthorController@show')->name('show');
+    });
 
-Route::get('/hallo', function () {
-    // hole view: resources/views/hallo.blade.php
-    $msg = 'Bitte alle Felder ausfüllen!';
-    $options = [
-        1 => 'Paul',
-        2 => 'Lisa',
-        3 => 'Heinrich'
-    ];
-
-    return view('hallo', ['message' => $msg, 'options' => $options]);
+// movie routen
+Route::name('movie.')
+    ->prefix('movie')
+    ->group(function ($route) {
+        $route->get('/create', 'MovieController@create')->name('create')->middleware('auth');
+        $route->post('/store', 'MovieController@store')->name('store')->middleware('auth');
+        $route->get('/edit/{movie}', 'MovieController@edit')->name('edit')->middleware('auth');
+        $route->get('/destroy/{movie}', 'MovieController@destroy')->name('destroy')->middleware('auth');
+        $route->post('/update/{movie}', 'MovieController@update')->name('update')->middleware('auth');
+        $route->get('/list', 'MovieController@index')->name('list');
+        $route->get('/{movie}', 'MovieController@show')->name('show');
 });
-
-Route::get('/test', 'TestController@show')->name('test');
-Route::get('/movies', 'TestController@movies')->name('movies');
-// hier neue route für movies erstellen mit route 'movie' und action 'TestController@movies'
-Route::get('/form', 'FormController@form')->name('form');
-Route::post('/send', 'FormController@send')->name('send');
-Route::get('/home', 'HomeController@index')->name('home');
-
-Route::get('/example', 'ExampleController@show');
-
-// autoren rooten
-Route::get('/autoren', 'AuthorController@index')->name('autoren');
-Route::get('/autor/{id}', 'AuthorController@show')->name('autor');
-
+//Route::resource('MovieResource', 'MovieResourceController');
 
 Route::fallback(function(){
-    return redirect()->route('welcome');
+    return redirect()->route('home');
 });

@@ -1,11 +1,11 @@
 <div class="form-group row">
-    <label for="{{ $name }}" class="col-md-2 col-form-label">{{ __(ucfirst($name)) }}</label>
+    <label for="{{ $name }}" class="col-md-2 col-form-label">{{ $label ?? ucwords($name) }}</label>
     <div class="col-md-10">
         <select
             id="{{ $name }}"
             name="{{ $name }}"
             value="{{ $value ?? ''}}"
-            class="form-control @error('title') is-invalid @enderror col-md-12"
+            class="form-control @error('title') is-invalid @enderror col-sm-12 col-md-6"
         >
             <option value="">Bitte wählen</option>
             <!-- baue options per blade function -->
@@ -17,6 +17,7 @@
                 @endif
             @endforeach
         </select>
+        {{ $slot }}
 
         @error($name)
         <span class="d-block invalid-feedback" role="alert">

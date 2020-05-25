@@ -16,14 +16,25 @@
 </head>
 <body>
     <div id="app">
+        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
+            <div class="container">
+                @include('components.top-navigation')
+            </div>
+        </nav>
+
         <main class="py-4">
             <div class="container">
                 <div class="row justify-content-center">
-                    <div class="col-md-8">
+                    <div class="col-md-12">
                         <div class="card">
                             <div class="card-header">
                                 @yield('header')
                             </div>
+
+                            @if(session('alert'))
+                                <x-alert type="{{ session('alert') }}" message="{{ session('message') }}" />
+                            @endif
+
                             <div class="card-body">
                                 @yield('body')
                             </div>

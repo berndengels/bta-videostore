@@ -1,0 +1,22 @@
+Aufgaben für den 22.05.2020
+
+1. Erstellt mittels "php artisan make:migration" eine neue Migations-Datei.
+Die Migration soll 'create_comments_table' heißen. Diese soll eine Tabelle
+mit dem Namen "comments" erstellen mit folgenden Spalten:
+- id (integer unsigned autoincrement)
+- movie_id (integer unsigned)
+- message (type text)
+- created_at (datetime)
+- updated_at (datetime)
+
+Führt anschliessend die Migration aus mit: php artisan migrate
+Überprüft bitte, ob die Tabelle erstellt wurde.
+
+2. Erstellt mittels 'artisan' eine neues Model in app/Models mit dem Namen "Comments".
+Definiert in der Movie Model-Klasse eine 1-n (hasMany) Beziehung zu dem Model "Comments".
+Die Beziehung soll "comments" heißen.
+
+3. Definiert im Model "Comments" die Revert-Beziehung (belongsTo) zu "Movie".
+Die Beziehung soll "movie" heißen.
+
+4. OPTIONAL: versuche die CRUD's für Author zu erstellen.
