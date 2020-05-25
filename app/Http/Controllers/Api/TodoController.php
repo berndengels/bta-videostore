@@ -1,10 +1,12 @@
 <?php
 namespace App\Http\Controllers\Api;
 
+use App\Exceptions\ApiValidationException;
+use Exception;
 use App\Models\Todo;
 use App\Http\Requests\TodoRequest;
 use App\Http\Controllers\Controller;
-use Exception;
+use Illuminate\Http\Exceptions\HttpResponseException;
 use Illuminate\Http\Response;
 use Illuminate\Validation\ValidationException;
 
@@ -40,22 +42,22 @@ class TodoController extends Controller
      */
     public function store(TodoRequest $request)
     {
-        try {
+        if ($request->validator && $request->validator->fails()) {
+            $response = [
+                'success'   => false,
+                'errors'    => $request->validator->errors()->get('title'),
+                'result'    => null,
+            ];
+            return response()->json($response)->setStatusCode(422);
+        } else {
             $result = Todo::create($request->validated());
             $response = [
                 'success'   => true,
-                'error'     => null,
+                'errors'     => null,
                 'result'    => $result,
             ];
-        } catch (ValidationException $e) {
-            $response = [
-                'success'   => false,
-                'error'     => $e->getMessage(),
-                'result'    => null,
-            ];
+            return response()->json($response);
         }
-
-        return response()->json($response);
     }
 
     /**
@@ -67,22 +69,21 @@ class TodoController extends Controller
      */
     public function update(TodoRequest $request, Todo $todo)
     {
-        try {
-            $result = $todo->update($request->validated());
-            $response = [
-                'success'   => true,
-                'error'     => null,
-                'result'    => $result,
-            ];
-        } catch (Exception $e) {
+        if ($request->validator && $request->validator->fails()) {
             $response = [
                 'success'   => false,
-                'error'     => $e->getMessage(),
+                'errors'    => $request->validator->errors()->get('title'),
                 'result'    => null,
             ];
+            return response()->json($response)->setStatusCode(422);
+        } else {
+            $response = [
+                'success'   => true,
+                'errors'     => null,
+                'result'    => $todo->update($request->validated()),
+            ];
+            return response()->json($response);
         }
-
-        return response()->json($response);
     }
 
     /**

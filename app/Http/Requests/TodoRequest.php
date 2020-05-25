@@ -3,10 +3,14 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
-use Illuminate\Validation\Validator;
+use Illuminate\Contracts\Validation\Validator;
 
 class TodoRequest extends FormRequest
 {
+    /**
+     * @var null Validator
+     */
+    public $validator = null;
     /**
      * Determine if the user is authorized to make this request.
      *
@@ -16,12 +20,12 @@ class TodoRequest extends FormRequest
     {
         return true;
     }
-/*
+
     protected function failedValidation(Validator $validator)
     {
-        return response()->json($validator->errors());
+        $this->validator = $validator;
     }
-*/
+
     public function validationData()
     {
         return array_merge([

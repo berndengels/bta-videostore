@@ -21,23 +21,23 @@ Route::name('author.')
     ->group(function ($route) {
         $route->get('/create', 'AuthorController@create')
             ->name('create')
-            ->middleware('auth')
+//            ->middleware('auth')
         ;
         $route->post('/store', 'AuthorController@store')
             ->name('store')
-            ->middleware('auth')
+//            ->middleware('auth')
         ;
         $route->get('/edit/{author}', 'AuthorController@edit')
             ->name('edit')
-            ->middleware('auth')
+//            ->middleware('auth')
         ;
         $route->post('/update/{author}', 'AuthorController@update')
             ->name('update')
-            ->middleware('auth')
+//            ->middleware('auth')
         ;
         $route->get('/destroy/{author}', 'AuthorController@destroy')
             ->name('destroy')
-            ->middleware('auth')
+//            ->middleware('auth')
         ;
         $route->get('/list', 'AuthorController@index')->name('list');
         $route->get('/autor/{author}', 'AuthorController@show')->name('show');
