@@ -45,7 +45,7 @@ class TodoController extends Controller
         if ($request->validator && $request->validator->fails()) {
             $response = [
                 'success'   => false,
-                'errors'    => $request->validator->errors()->get('title'),
+                'errors'    => $request->validator->errors(),
                 'result'    => null,
             ];
             return response()->json($response)->setStatusCode(422);
@@ -72,7 +72,7 @@ class TodoController extends Controller
         if ($request->validator && $request->validator->fails()) {
             $response = [
                 'success'   => false,
-                'errors'    => $request->validator->errors()->get('title'),
+                'errors'    => $request->validator->errors(),
                 'result'    => null,
             ];
             return response()->json($response)->setStatusCode(422);

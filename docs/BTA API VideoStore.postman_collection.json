@@ -21,59 +21,7 @@
 				],
 				"body": {
 					"mode": "urlencoded",
-					"urlencoded": [
-						{
-							"key": "title",
-							"value": "Kaffee kochen",
-							"type": "text"
-						},
-						{
-							"key": "done",
-							"value": "0",
-							"type": "text"
-						}
-					]
-				},
-				"url": {
-					"raw": "http://videostore.loc/api/todo",
-					"protocol": "http",
-					"host": [
-						"videostore",
-						"loc"
-					],
-					"path": [
-						"api",
-						"todo"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "Todo Create",
-			"request": {
-				"method": "POST",
-				"header": [
-					{
-						"key": "X-Requested-With",
-						"value": "XMLHttpRequest",
-						"type": "text"
-					}
-				],
-				"body": {
-					"mode": "urlencoded",
-					"urlencoded": [
-						{
-							"key": "title",
-							"value": "",
-							"type": "text"
-						},
-						{
-							"key": "done",
-							"value": "1",
-							"type": "text"
-						}
-					]
+					"urlencoded": []
 				},
 				"url": {
 					"raw": "http://videostore.loc/api/todo",
@@ -106,18 +54,7 @@
 				],
 				"body": {
 					"mode": "urlencoded",
-					"urlencoded": [
-						{
-							"key": "title",
-							"value": "Kaffee kochen",
-							"type": "text"
-						},
-						{
-							"key": "done",
-							"value": "0",
-							"type": "text"
-						}
-					]
+					"urlencoded": []
 				},
 				"url": {
 					"raw": "http://videostore.loc/api/todo/2",
@@ -130,6 +67,47 @@
 						"api",
 						"todo",
 						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Todo Create",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "X-Requested-With",
+						"value": "XMLHttpRequest",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "title",
+							"value": "",
+							"type": "text"
+						},
+						{
+							"key": "done",
+							"value": "",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://videostore.loc/api/todo",
+					"protocol": "http",
+					"host": [
+						"videostore",
+						"loc"
+					],
+					"path": [
+						"api",
+						"todo"
 					]
 				}
 			},
@@ -197,18 +175,7 @@
 				],
 				"body": {
 					"mode": "urlencoded",
-					"urlencoded": [
-						{
-							"key": "title",
-							"value": "Zähneputzen",
-							"type": "text"
-						},
-						{
-							"key": "done",
-							"value": "1",
-							"type": "text"
-						}
-					]
+					"urlencoded": []
 				},
 				"url": {
 					"raw": "http://videostore.loc/api/todo/1",
