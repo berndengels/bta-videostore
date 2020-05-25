@@ -42,7 +42,7 @@ trait HasUser
 	}
 
 	/**
-	 * @return BelongsTo
+	 * @return hasOne
 	 */
 	public function createdBy()
 	{
@@ -50,7 +50,7 @@ trait HasUser
 	}
 
 	/**
-	 * @return BelongsTo
+	 * @return hasOne
 	 */
 	public function updatedBy()
 	{

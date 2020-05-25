@@ -37,22 +37,6 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    /**
-     * @return HasMany
-     */
-    public function moviesCreated()
-    {
-        return $this->hasMany(Movie::class, 'created_by', 'id');
-    }
-
-    /**
-     * @return HasMany
-     */
-    public function moviesUpdated()
-    {
-        return $this->hasMany(Movie::class, 'updated_by', 'id');
-    }
-
     public function __toString()
     {
         return $this->name;
