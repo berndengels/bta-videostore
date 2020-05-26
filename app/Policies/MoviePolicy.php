@@ -39,9 +39,9 @@ class MoviePolicy
      * @param User $user
      * @return mixed
      */
-    public function create(User $user)
+    public function create(User $user = null)
     {
-        return true;
+        return null !== $user;
     }
 
     /**
