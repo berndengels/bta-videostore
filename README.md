@@ -38,7 +38,7 @@ Projektverzeichnis (videostore) ausführen:
 https://www.getpostman.com/
 
 Wenn installiert, dann kannst Du hier die zu testenden Requests anlegen und ausführen:
-![Postman](./public/assets/postman.jpg)
+![Postman](https://raw.githubusercontent.com/berndengels/bta-videostore/master/public/assets/postman.jpg)
 
 #### Fehlermeldungen per Email
 
