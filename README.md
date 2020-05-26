@@ -38,7 +38,7 @@ Projektverzeichnis (videostore) ausführen:
 https://www.getpostman.com/
 
 Wenn installiert, dann kannst Du hier die zu testenden Requests anlegen und ausführen:
-![Postman](./postman.jpg)
+![Postman](./public/assets/postman.jpg)
 
 #### Fehlermeldungen per Email
 
@@ -54,6 +54,8 @@ MAIL_PORT=25
 MAIL_USERNAME=kurs@goldenacker.de
 MAIL_PASSWORD=bta2019X
 MAIL_ENCRYPTION=null
+TO_ERROR_MAIL=your@email.com
+FROM_ERROR_MAIL=your@email.com
 ```
 und in config/laravelEmailExceptions.php
 
@@ -61,6 +63,8 @@ unbedingt den Parameter 'toEmailAddress' setzen (Eure Email-Adresse):
 
 ...
 ```
-        'toEmailAddress' => 'your@mail.de',
+    'toEmailAddress'    => env('TO_ERROR_MAIL'),
+    'fromEmailAddress'  => env('FROM_ERROR_MAIL'),
+    'emailSubject'      => 'Videostore Error'
 ```
 ...
