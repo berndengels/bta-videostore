@@ -27,9 +27,9 @@ class MovieController extends Controller
      */
     public function index()
     {
-        $user   = auth()->check() ? auth()->user() : null;
         $movie  = Movie::query()->orderBy('title');
 /*
+        $user   = auth()->check() ? auth()->user() : null;
         if($user) {
             $movie
                 ->where('created_by', $user->id)
