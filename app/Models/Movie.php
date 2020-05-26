@@ -4,6 +4,7 @@ namespace App\Models;
 
 use App\Models\Ext\HasUser;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasOne;
 
 class Movie extends Model
 {

@@ -1,20 +1,21 @@
 <?php
 /**
- * Userable.php
+ * HasUser.php
  *
  * @author    Bernd Engels
  * @created   12.03.19 17:27
- * @copyright Webwerk Berlin GmbH
+ * @copyright engels@goldenacker.de
  */
 
 namespace App\Models\Ext;
 
-use Auth;
+//use Auth;
 use App\Models\User;
-use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasOne;
 
 /**
  * Trait HasUser
+ * see: https://www.php.net/manual/de/language.oop5.traits.php
  */
 trait HasUser
 {
@@ -25,13 +26,13 @@ trait HasUser
 		 */
 		$user = auth()->user();
 		if($user) {
-			static::creating(function($table) use ($user)  {
+            static::creating(function($table) use ($user)  {
 				$table->created_by = $user->id;
 			});
             static::updating(function($table) use ($user)  {
                 $table->updated_by = $user->id;
             });
-			static::saving(function($table) use ($user) {
+            static::saving(function($table) use ($user) {
 				if( $table->id > 0 ) {
 					$table->updated_by = $user->id;
 				} else {
@@ -42,7 +43,7 @@ trait HasUser
 	}
 
 	/**
-	 * @return hasOne
+	 * @return HasOne
 	 */
 	public function createdBy()
 	{
@@ -50,7 +51,7 @@ trait HasUser
 	}
 
 	/**
-	 * @return hasOne
+	 * @return HasOne
 	 */
 	public function updatedBy()
 	{

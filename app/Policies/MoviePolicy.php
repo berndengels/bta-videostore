@@ -18,7 +18,6 @@ class MoviePolicy
      */
     public function viewAny(User $user)
     {
-        //
     }
 
     /**
@@ -30,7 +29,6 @@ class MoviePolicy
      */
     public function view(User $user, Movie $movie)
     {
-        //
     }
 
     /**

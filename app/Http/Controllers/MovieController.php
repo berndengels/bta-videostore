@@ -27,7 +27,17 @@ class MovieController extends Controller
      */
     public function index()
     {
-        $data = Movie::orderBy('title')->paginate(15);
+        $user   = auth()->check() ? auth()->user() : null;
+        $movie  = Movie::query()->orderBy('title');
+/*
+        if($user) {
+            $movie
+                ->where('created_by', $user->id)
+                ->orWhere('updated_by', $user->id)
+            ;
+        }
+*/
+        $data = $movie->paginate(15);
         return view('movies', compact('data'));
     }
 

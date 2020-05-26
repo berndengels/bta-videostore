@@ -28,6 +28,7 @@
             @endauth
         </tr>
         @foreach($data as $item)
+            {{-- @canany(['update', 'delete'], $item) --}}
             <tr>
                 <td>{{ $item->id }}</td>
                 <td>{{ $item->author->name }}</td>
@@ -50,6 +51,7 @@
                     <td>NO</td>
                 @endcan
             </tr>
+            {{-- @endcanany --}}
         @endforeach
     </table>
 @endsection
