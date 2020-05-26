@@ -46,7 +46,7 @@ trait HasUser
 	 */
 	public function createdBy()
 	{
-		return $this->belongsTo(User::class, 'created_by', 'id');
+		return $this->hasOne(User::class, 'id', 'created_by');
 	}
 
 	/**
@@ -54,6 +54,6 @@ trait HasUser
 	 */
 	public function updatedBy()
 	{
-		return $this->belongsTo(User::class, 'updated_by', 'id');
+		return $this->hasOne(User::class, 'id', 'updated_by');
 	}
 }
