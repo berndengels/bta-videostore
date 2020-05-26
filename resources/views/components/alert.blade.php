@@ -7,12 +7,13 @@
 </div>
 
 <script>
-    var $myid = $("#{{ $uniqid }}"),
-        delay = 1,
-        toDelay = 3000
-    ;
+    var myid = "#{{ $uniqid }}", delay = 1;
     setTimeout(function(){
+        slideFade($(myid));
+    }, 3000);
+
+    const slideFade = (elem) => {
         const fade = { opacity: 0, transition: 'opacity ' + delay + 's' };
-        $myid.css(fade).slideUp(delay * 1000);
-    }, toDelay);
+        elem.css(fade).slideUp(delay * 1000);
+    }
 </script>
