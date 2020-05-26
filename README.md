@@ -61,10 +61,11 @@ und in config/laravelEmailExceptions.php
 
 unbedingt den Parameter 'toEmailAddress' setzen (Eure Email-Adresse):
 
-...
 ```
     'toEmailAddress'    => env('TO_ERROR_MAIL'),
     'fromEmailAddress'  => env('FROM_ERROR_MAIL'),
     'emailSubject'      => 'Videostore Error'
 ```
-...
+MacOSX: Postfix als Sendmail-Server einrichten:
+https://gist.github.com/loziju/66d3f024e102704ff5222e54a4bfd50e
+
