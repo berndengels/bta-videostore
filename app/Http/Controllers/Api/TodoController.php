@@ -12,6 +12,7 @@ use Illuminate\Validation\ValidationException;
 
 class TodoController extends Controller
 {
+    protected $onlyResultKeys = ['id','title','done'];
     /**
      * Display a listing of the resource.
      *
@@ -54,7 +55,7 @@ class TodoController extends Controller
             $response = [
                 'success'   => true,
                 'errors'     => null,
-                'result'    => $result,
+                'result'    => $result->only($this->onlyResultKeys),
             ];
             return response()->json($response);
         }
@@ -77,10 +78,11 @@ class TodoController extends Controller
             ];
             return response()->json($response)->setStatusCode(422);
         } else {
+            $todo->update($request->validated());
             $response = [
                 'success'   => true,
                 'errors'     => null,
-                'result'    => $todo->update($request->validated()),
+                'result'    => $todo->only($this->onlyResultKeys),
             ];
             return response()->json($response);
         }
