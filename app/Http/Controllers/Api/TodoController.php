@@ -20,7 +20,7 @@ class TodoController extends Controller
      */
     public function index()
     {
-        $data = Todo::all()->pluck(['id','title','done']);
+        $data = Todo::all('id','title','done');
         return response()->json($data);
     }
 
