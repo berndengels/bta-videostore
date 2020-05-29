@@ -8,6 +8,6 @@ class Todo extends Model
     protected $fillable = ['title','done'];
     protected $casts = [
         'id'    => 'integer',
-        'done'  => 'integer',
+        'done'  => 'boolean',
     ];
 }
