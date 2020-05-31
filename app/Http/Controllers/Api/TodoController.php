@@ -1,14 +1,12 @@
 <?php
 namespace App\Http\Controllers\Api;
 
-use App\Exceptions\ApiValidationException;
 use Exception;
 use App\Models\Todo;
+use Illuminate\Http\Response;
 use App\Http\Requests\TodoRequest;
 use App\Http\Controllers\Controller;
-use Illuminate\Http\Exceptions\HttpResponseException;
-use Illuminate\Http\Response;
-use Illuminate\Validation\ValidationException;
+use App\Http\Resources\TodoResource;
 
 class TodoController extends Controller
 {
@@ -21,6 +19,7 @@ class TodoController extends Controller
     public function index()
     {
         $data = Todo::all('id','title','done');
+        $data = TodoResource::collection($data);
         return response()->json($data);
     }
 
@@ -32,7 +31,8 @@ class TodoController extends Controller
      */
     public function show(Todo $todo)
     {
-        return response()->json($todo->toArray());
+        $data = new TodoResource($todo);
+        return response()->json($data);
     }
 
     /**
