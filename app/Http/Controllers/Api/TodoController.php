@@ -10,7 +10,6 @@ use App\Http\Resources\TodoResource;
 
 class TodoController extends Controller
 {
-    protected $onlyResultKeys = ['id','title','done'];
     /**
      * Display a listing of the resource.
      *
@@ -49,16 +48,15 @@ class TodoController extends Controller
                 'errors'    => $request->validator->errors(),
                 'result'    => null,
             ];
-            return response()->json($response)->setStatusCode(422);
         } else {
             $result = Todo::create($request->validated());
             $response = [
                 'success'   => true,
-                'errors'     => null,
-                'result'    => $result->only($this->onlyResultKeys),
+                'errors'    => null,
+                'result'    => new TodoResource($result),
             ];
-            return response()->json($response);
         }
+        return response()->json($response);
     }
 
     /**
@@ -76,16 +74,15 @@ class TodoController extends Controller
                 'errors'    => $request->validator->errors(),
                 'result'    => null,
             ];
-            return response()->json($response)->setStatusCode(422);
         } else {
             $todo->update($request->validated());
             $response = [
                 'success'   => true,
-                'errors'     => null,
-                'result'    => $todo->only($this->onlyResultKeys),
+                'errors'    => null,
+                'result'    => new TodoResource($todo),
             ];
-            return response()->json($response);
         }
+        return response()->json($response);
     }
 
     /**
