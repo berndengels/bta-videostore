@@ -41,7 +41,7 @@ class TodoRequest extends FormRequest
     public function rules()
     {
         return [
-            'title' => 'required',
+            'title' => 'required|alphanum|min:3',
             'done'  => '',
         ];
     }
@@ -53,7 +53,9 @@ class TodoRequest extends FormRequest
     public function messages()
     {
         return [
-            'title.required' => 'Bitte einen Titel angeben!',
+            'title.required'    => 'Bitte einen Titel angeben!',
+            'title.alphanum'    => 'Der Titel darf nur alphanumerische Zeichen enthalten!',
+            'title.min'         => 'Der Titel muss mindestens 3 Zeichen lang sein!',
         ];
     }
 }
