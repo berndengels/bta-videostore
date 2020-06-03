@@ -97,13 +97,13 @@ class TodoController extends Controller
             $result = $todo->delete();
             $response = [
                 'success'   => true,
-                'error'     => null,
+                'errors'     => null,
                 'result'    => $result,
             ];
         } catch (Exception $e) {
             $response = [
                 'success'   => false,
-                'error'     => $e->getMessage(),
+                'errors'    => [$e->getMessage()],
                 'result'    => null,
             ];
         }
