@@ -9,7 +9,7 @@ class DatabaseSeeder extends Seeder
     private $_seeds = [
 //        AuthorSeeder::class,
 //        MovieSeeder::class,
-//        UserSeeder::class,
+        UserSeeder::class,
         MovieAddUserSeeder::class,
     ];
 

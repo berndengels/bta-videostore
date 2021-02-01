@@ -1,4 +1,4 @@
-﻿INSERT INTO `movies` (`id`, `author_id`, `title`, `price`, `created_at`, `updated_at`)
+﻿INSERT IGNORE INTO `movies` (`id`, `author_id`, `title`, `price`, `created_at`, `updated_at`)
 VALUES
 	(1, 31, 'Conserva Acabada', 30.26, '2019-10-28 21:16:44', '2020-05-20 14:03:45'),
 	(2, 4, 'Champion', 13.70, '2019-10-28 21:16:44', '2019-10-28 21:16:44'),
